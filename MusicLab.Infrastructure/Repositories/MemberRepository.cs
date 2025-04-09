@@ -8,18 +8,13 @@ using MusicLab.Domain.Entities;
 
 namespace MusicLab.Infrastructure.Repositories
 {
-    public class CompanyRepository(MusicLabContext ctx) : ICompanyRepository
+    public class MemberRepository(MusicLabContext ctx) : IMemberRepository
     {
-        public virtual List<Company> GetAll()
+        public virtual Member Add(Member m)
         {
-            return ctx.Companies.ToList();
-
-        }
-        public virtual Company Add(Company c)
-        {
-            ctx.Companies.Add(c);
+            ctx.Members.Add(m);
             ctx.SaveChanges();
-            return c;
-        }
+            return m;
+        } 
     }
 }

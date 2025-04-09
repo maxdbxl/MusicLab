@@ -13,11 +13,31 @@ namespace MusicLab.Infrastructure.Configs
     {
         public void Configure(EntityTypeBuilder<Member> builder)
         {
-            builder.Property(c => c.Username)
+            builder.Property(m => m.Username)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.HasIndex(c => c.Username).IsUnique();
+            builder.HasIndex(m => m.Username).IsUnique();
+            builder.HasIndex(m => m.Email).IsUnique();
+
+            builder.HasData([
+                new Member {
+                    Id = 1,
+                    Username = "Henrie",
+                    Email = "henrie@branche.be",
+                    Role = Domain.Enums.Role.Admin,
+                    Password = "Test1234!",
+                    Companies = []
+                },
+                new Member {
+                    Id = 2,
+                    Username = "Mireillle",
+                    Email = "mireille@branche.be",
+                    Role = Domain.Enums.Role.Member,
+                    Password = "Test1234!",
+                    Companies = []
+                }
+                ]);
 
         }
     }

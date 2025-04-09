@@ -19,6 +19,15 @@ namespace MusicLab.Infrastructure.Configs
 
             builder.HasIndex(c => c.Name).IsUnique();
 
+            builder.HasData([
+                new Company {
+                    Id = 1,
+                    Name = "Los Branches",
+                    Members = [],
+                    Projects = []
+                }
+                ]);
+
         }
     }
 }

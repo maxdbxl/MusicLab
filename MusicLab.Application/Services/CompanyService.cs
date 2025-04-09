@@ -17,7 +17,6 @@ namespace MusicLab.Application.Services
             Company c = companyRepository.Add(new Company
             {
                 Name = dto.Name,
-                Id = dto.Id,
                 Members = [],
                 Projects = []
                 

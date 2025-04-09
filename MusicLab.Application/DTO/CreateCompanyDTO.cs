@@ -8,7 +8,7 @@ namespace MusicLab.Application.DTO
 {
     public class CreateCompanyDTO
     {
-        public int Id { get; set; }
+        
         public string Name { get; set; } = null!;
     }
 }
