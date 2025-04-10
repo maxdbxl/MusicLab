@@ -16,5 +16,16 @@ namespace MusicLab.API.Controllers
             Member m = memberService.Create(dto);
             return Created("member/" + m.Id, m);
         }
+
+        [HttpHead]
+        public IActionResult Head([FromQuery] string email)
+        {
+            if (memberService.ExistsEmail(email))
+            {
+                return Ok();
+            }
+            return NotFound();
+        }
+
     }
 }

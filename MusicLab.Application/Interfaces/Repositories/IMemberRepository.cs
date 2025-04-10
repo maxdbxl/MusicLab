@@ -10,5 +10,7 @@ namespace MusicLab.Application.Interfaces.Repositories
     public interface IMemberRepository
     {
         Member Add(Member m);
+
+        bool EmailExists(string email);
     }
 }

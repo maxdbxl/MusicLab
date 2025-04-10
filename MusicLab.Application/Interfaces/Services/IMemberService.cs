@@ -11,5 +11,7 @@ namespace MusicLab.Application.Interfaces.Services
     public interface IMemberService
     {
         Member Create(RegisterMemberDTO dto);
+
+        bool ExistsEmail(string email);
     }
 }

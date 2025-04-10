@@ -16,5 +16,10 @@ namespace MusicLab.Infrastructure.Repositories
             ctx.SaveChanges();
             return m;
         } 
+
+        public bool EmailExists(string email)
+        {
+            return ctx.Members.Any(m => m.Email == email);
+        }
     }
 }

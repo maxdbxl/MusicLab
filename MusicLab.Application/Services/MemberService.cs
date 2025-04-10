@@ -24,5 +24,10 @@ namespace MusicLab.Application.Services
                 });
             return m;
         }
+
+        public bool ExistsEmail(string email)
+        {
+            return memberRepository.EmailExists(email);
+        }
     }
 }
