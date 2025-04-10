@@ -32,8 +32,8 @@ namespace MusicLab.Application.Services
 
         public Member GetById(int id)
         {
-            Member? memberToGet = memberRepository.GetMemberById(id) ?? throw new KeyNotFoundException();
-            return memberToGet;
+            return memberRepository.GetMemberById(id) ?? throw new KeyNotFoundException();
+             
         }
     }
 }

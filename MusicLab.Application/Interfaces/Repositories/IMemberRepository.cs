@@ -13,6 +13,6 @@ namespace MusicLab.Application.Interfaces.Repositories
 
         bool EmailExists(string email);
 
-        Member GetMemberById(int Id);
+        Member? GetMemberById(int Id);
     }
 }
