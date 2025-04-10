@@ -11,5 +11,6 @@ namespace MusicLab.Application.Interfaces.Services
     public interface ICompanyService
     {
         Company Create(CreateCompanyDTO dto);
+
     }
 }

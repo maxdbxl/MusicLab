@@ -13,5 +13,7 @@ namespace MusicLab.Application.Interfaces.Services
         Member Create(RegisterMemberDTO dto);
 
         bool ExistsEmail(string email);
+
+        Member GetById(int id);
     }
 }

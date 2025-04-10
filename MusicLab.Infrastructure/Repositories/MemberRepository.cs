@@ -21,5 +21,10 @@ namespace MusicLab.Infrastructure.Repositories
         {
             return ctx.Members.Any(m => m.Email == email);
         }
+
+        public virtual Member GetMemberById(int id)
+        {
+            return ctx.Members.SingleOrDefault(m => m.Id == id);
+        }
     }
 }

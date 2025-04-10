@@ -27,5 +27,22 @@ namespace MusicLab.API.Controllers
             return NotFound();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute]int id)
+        {
+            //Vérifier si le membre avec cette id existe
+            //TODO : Ajout Autres Exceptions éventuelles
+            //TODO : Ajout DTO pour le return
+            try
+            {
+                Member? memberToGet = memberService.GetById(id);
+                return Ok(memberToGet);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }          
+        }
+
     }
 }

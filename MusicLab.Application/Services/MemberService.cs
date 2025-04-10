@@ -29,5 +29,11 @@ namespace MusicLab.Application.Services
         {
             return memberRepository.EmailExists(email);
         }
+
+        public Member GetById(int id)
+        {
+            Member? memberToGet = memberRepository.GetMemberById(id) ?? throw new KeyNotFoundException();
+            return memberToGet;
+        }
     }
 }
