@@ -20,7 +20,7 @@ namespace MusicLab.Application.Services
                     Username = dto.Username,
                     Email = dto.Email,
                     Password = dto.Password,
-                    Role = dto.Role,
+                    Role = 0
                 });
             return m;
         }
