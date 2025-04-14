@@ -21,6 +21,10 @@ namespace MusicLab.Infrastructure.Repositories
         {
             return ctx.Members.Any(m => m.Email == email);
         }
+        public bool UsernameExists(string username)
+        {
+            return ctx.Members.Any(m => m.Username == username);
+        }
 
         public virtual Member? GetMemberById(int id)
         {

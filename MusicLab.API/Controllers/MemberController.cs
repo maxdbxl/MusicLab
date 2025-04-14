@@ -26,6 +26,16 @@ namespace MusicLab.API.Controllers
             }
             return NotFound();
         }
+        //[HttpHead]
+        //public IActionResult Head([FromQuery] string username)
+        //{
+        //    if (memberService.ExistsUsername(username))
+        //    {
+        //        return Ok();
+        //    }
+        //    return NotFound();
+        //}
+
 
         [HttpGet("{id}")]
         public IActionResult Get([FromRoute]int id)

@@ -29,6 +29,10 @@ namespace MusicLab.Application.Services
         {
             return memberRepository.EmailExists(email);
         }
+        public bool ExistsUsername(string username)
+        {
+            return memberRepository.UsernameExists(username);
+        }
 
         public Member GetById(int id)
         {
