@@ -18,23 +18,28 @@ namespace MusicLab.API.Controllers
         }
 
         [HttpHead]
-        public IActionResult Head([FromQuery] string email)
+        public IActionResult Head([FromQuery] string? email, [FromQuery] string? username)
         {
+            if (email != null) { 
+            
+            
             if (memberService.ExistsEmail(email))
             {
                 return Ok();
             }
             return NotFound();
         }
-        //[HttpHead]
-        //public IActionResult Head([FromQuery] string username)
-        //{
-        //    if (memberService.ExistsUsername(username))
-        //    {
-        //        return Ok();
-        //    }
-        //    return NotFound();
-        //}
+            if (username != null)
+            {
+                if (memberService.ExistsUsername(username))
+                {
+                    return Ok();
+                }
+                return NotFound();
+            }
+            return BadRequest();
+        } 
+       
 
 
         [HttpGet("{id}")]
