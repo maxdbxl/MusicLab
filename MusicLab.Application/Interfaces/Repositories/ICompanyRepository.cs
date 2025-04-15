@@ -12,5 +12,7 @@ namespace MusicLab.Application.Interfaces.Repositories
         List<Company> GetAll();
         Company Add(Company c);
 
+        Company? GetCompanyById(int id);
+
     }
 }

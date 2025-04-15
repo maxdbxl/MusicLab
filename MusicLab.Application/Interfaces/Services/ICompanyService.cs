@@ -12,5 +12,9 @@ namespace MusicLab.Application.Interfaces.Services
     {
         Company Create(CreateCompanyDTO dto);
 
+        Company GetById(int id);
+
+        List<Company> GetAll();
+
     }
 }

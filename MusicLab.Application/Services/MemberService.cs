@@ -39,5 +39,10 @@ namespace MusicLab.Application.Services
             return memberRepository.GetMemberById(id) ?? throw new KeyNotFoundException();
              
         }
+
+        public List<Member> GetAll()
+        {
+            return memberRepository.GetAll();
+        }
     }
 }

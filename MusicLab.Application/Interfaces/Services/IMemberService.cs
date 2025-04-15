@@ -16,5 +16,6 @@ namespace MusicLab.Application.Interfaces.Services
         bool ExistsUsername(string username);
 
         Member GetById(int id);
+        List<Member> GetAll();
     }
 }

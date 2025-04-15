@@ -14,5 +14,7 @@ namespace MusicLab.Application.Interfaces.Repositories
         bool EmailExists(string email);
         bool UsernameExists(string username);
         Member? GetMemberById(int Id);
+
+        List<Member> GetAll();
     }
 }

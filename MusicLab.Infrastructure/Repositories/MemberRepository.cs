@@ -30,5 +30,12 @@ namespace MusicLab.Infrastructure.Repositories
         {
             return ctx.Members.SingleOrDefault(m => m.Id == id);
         }
+
+        public virtual List<Member> GetAll()
+        {
+            return ctx.Members.ToList();
+            //Faire join pour récupérer infos
+
+        }
     }
 }

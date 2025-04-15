@@ -13,6 +13,7 @@ namespace MusicLab.Infrastructure.Repositories
         public virtual List<Company> GetAll()
         {
             return ctx.Companies.ToList();
+            //Faire join pour récupérer infos
 
         }
         public virtual Company Add(Company c)
@@ -21,5 +22,12 @@ namespace MusicLab.Infrastructure.Repositories
             ctx.SaveChanges();
             return c;
         }
+
+        public virtual Company? GetCompanyById(int id)
+        {
+            return ctx.Companies.SingleOrDefault(c => c.Id == id);
+        }
+
+        
     }
 }

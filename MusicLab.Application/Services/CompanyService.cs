@@ -24,5 +24,15 @@ namespace MusicLab.Application.Services
             return c;
         }
 
+        public Company GetById(int id) 
+        {
+            return companyRepository.GetCompanyById(id) ?? throw new KeyNotFoundException();
+        }
+
+        public List<Company> GetAll()
+        {
+            return companyRepository.GetAll();
+        }
+
     }
 }

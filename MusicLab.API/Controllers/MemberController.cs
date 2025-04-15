@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicLab.Application.DTO;
 using MusicLab.Application.Interfaces.Services;
+using MusicLab.Application.Services;
 using MusicLab.Domain.Entities;
 
 namespace MusicLab.API.Controllers
@@ -58,6 +59,15 @@ namespace MusicLab.API.Controllers
                 return NotFound();
             }          
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<MemberDTO> allGroups = memberService.GetAll().Select(m => new MemberDTO(m))
+            .ToList();
+            return Ok(allGroups);
+        }
+
 
     }
 }

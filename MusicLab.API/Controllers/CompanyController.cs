@@ -16,5 +16,27 @@ namespace MusicLab.API.Controllers
             Company c = companyService.Create(dto);
             return Created("company/" + c.Id, c);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] int id)
+        { 
+            try
+            {
+                Company? groupToGet = companyService.GetById(id);
+                return Ok(groupToGet);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Company> allGroups = companyService.GetAll();
+                return Ok(allGroups);
+            //TODO : Try Catch + return NotFound
+        }
     }
 }
