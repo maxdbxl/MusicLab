@@ -38,5 +38,20 @@ namespace MusicLab.API.Controllers
                 return Ok(allGroups);
             //TODO : Try Catch + return NotFound
         }
+
+
+        [HttpHead]
+        public IActionResult Head([FromQuery] string group)
+        {
+            if (group != null)
+            {
+                if (companyService.ExistsGroup(group))
+                {
+                    return Ok();
+                }
+                return NotFound();
+            }
+            return BadRequest();
+        }
     }
 }

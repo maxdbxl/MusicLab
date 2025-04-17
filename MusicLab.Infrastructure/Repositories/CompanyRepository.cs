@@ -28,6 +28,10 @@ namespace MusicLab.Infrastructure.Repositories
             return ctx.Companies.SingleOrDefault(c => c.Id == id);
         }
 
-        
+        public bool ExistsGroup(string groupName)
+        {
+            return ctx.Companies.Any(m => m.Name == groupName);
+        }
+
     }
 }

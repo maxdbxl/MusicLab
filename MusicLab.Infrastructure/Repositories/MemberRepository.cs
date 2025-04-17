@@ -37,5 +37,7 @@ namespace MusicLab.Infrastructure.Repositories
             //Faire join pour récupérer infos
 
         }
+
+        
     }
 }

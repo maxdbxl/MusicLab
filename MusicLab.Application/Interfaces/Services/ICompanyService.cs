@@ -16,5 +16,7 @@ namespace MusicLab.Application.Interfaces.Services
 
         List<Company> GetAll();
 
+        bool ExistsGroup(string group);
+
     }
 }

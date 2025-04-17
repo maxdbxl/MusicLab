@@ -34,5 +34,9 @@ namespace MusicLab.Application.Services
             return companyRepository.GetAll();
         }
 
+        public bool ExistsGroup(string groupName)
+        {
+            return companyRepository.ExistsGroup(groupName);
+        }
     }
 }
