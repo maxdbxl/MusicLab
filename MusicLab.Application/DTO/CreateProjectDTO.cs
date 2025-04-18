@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicLab.Domain.Entities;
 
-namespace MusicLab.Domain.Entities
+namespace MusicLab.Application.DTO
 {
-    public class Project
+    public class CreateProjectDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
+
         public List<Company> Companies { get; set; } = null!;
-        public List<Meeting> Meetings { get; set; } = null!;
-        public DateTime StartDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }
 }

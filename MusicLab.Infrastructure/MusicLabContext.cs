@@ -13,11 +13,17 @@ namespace MusicLab.Infrastructure
     {
         public DbSet<Member> Members { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
+        public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<Invitation> Invitations { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new MemberConfig());
             modelBuilder.ApplyConfiguration(new CompanyConfig());
+            modelBuilder.ApplyConfiguration(new ProjectConfig());
+            modelBuilder.ApplyConfiguration(new MeetingConfig());
+        
         }
     }
 }

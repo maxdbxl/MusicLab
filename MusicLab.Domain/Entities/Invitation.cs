@@ -9,8 +9,9 @@ namespace MusicLab.Domain.Entities
 {
     public class Invitation
     {
-        public List<Meeting> Meetings { get; set; } = null!;
-        public List<Member> Members { get; set; } = null!;
+        public int Id { get; set; }
+        public Meeting Meeting { get; set; } = null!;
+        public Member Member { get; set; } = null!;
         
         public Availability Availability { get; set; }
     }
