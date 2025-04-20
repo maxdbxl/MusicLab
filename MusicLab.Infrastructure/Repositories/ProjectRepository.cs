@@ -24,12 +24,13 @@ namespace MusicLab.Infrastructure.Repositories
 
         public List<Project> GetAllProjects()
         {
-            throw new NotImplementedException();
+            return ctx.Projects.ToList();
+            //Eventuel join pour récupérer infos
         }
 
         public Project? GetProjectById(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Projects.SingleOrDefault(p => p.Id == id);
         }
     }
 }

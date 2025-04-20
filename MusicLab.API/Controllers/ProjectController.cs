@@ -12,14 +12,14 @@ namespace MusicLab.API.Controllers
     {
 
         [HttpPost]
-        public IActionResult Post([FromBody]CreateProjectDTO dto)
+        public IActionResult Post([FromBody] CreateProjectDTO dto)
         {
             Project p = projectService.Create(dto);
             return Created("project/" + p.Id, p);
         }
 
         [HttpHead]
-        public IActionResult ExistsProject([FromQuery]string projectName)
+        public IActionResult ExistsProject([FromQuery] string projectName)
         {
             if (projectName != null)
             {
@@ -29,6 +29,27 @@ namespace MusicLab.API.Controllers
                 return NotFound();
             }
             return BadRequest();
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Project> allProjects = projectService.GetAll();
+            return Ok(allProjects);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            try
+            {
+                Project? projectToGet = projectService.GetById(id);
+                return Ok(projectToGet);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
     }
 }

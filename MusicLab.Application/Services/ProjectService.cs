@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using MusicLab.Application.DTO;
@@ -33,12 +34,12 @@ namespace MusicLab.Application.Services
 
         public List<Project> GetAll()
         {
-            throw new NotImplementedException();
+            return projectRepository.GetAllProjects();
         }
 
         public Project GetById(int id)
         {
-            throw new NotImplementedException();
+            return projectRepository.GetProjectById(id) ?? throw new KeyNotFoundException();
         }
     }
 }
