@@ -18,5 +18,17 @@ namespace MusicLab.API.Controllers
             return Created("project/" + p.Id, p);
         }
 
+        [HttpHead]
+        public IActionResult ExistsProject([FromQuery]string projectName)
+        {
+            if (projectName != null)
+            {
+                if (projectService.ExistsProject(projectName)) {
+                    return Ok();
+                }
+                return NotFound();
+            }
+            return BadRequest();
+        }
     }
 }

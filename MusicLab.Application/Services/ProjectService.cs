@@ -28,7 +28,7 @@ namespace MusicLab.Application.Services
 
         public bool ExistsProject(string projectName)
         {
-            throw new NotImplementedException();
+            return projectRepository.ExistsProject(projectName);
         }
 
         public List<Project> GetAll()

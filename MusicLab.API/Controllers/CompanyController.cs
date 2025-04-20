@@ -41,11 +41,11 @@ namespace MusicLab.API.Controllers
 
 
         [HttpHead]
-        public IActionResult Head([FromQuery] string group)
+        public IActionResult Head([FromQuery] string groupName)
         {
-            if (group != null)
+            if (groupName != null)
             {
-                if (companyService.ExistsGroup(group))
+                if (companyService.ExistsGroup(groupName))
                 {
                     return Ok();
                 }

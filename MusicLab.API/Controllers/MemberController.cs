@@ -63,9 +63,9 @@ namespace MusicLab.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<MemberDTO> allGroups = memberService.GetAll().Select(m => new MemberDTO(m))
+            List<MemberDTO> allMembers = memberService.GetAll().Select(m => new MemberDTO(m))
             .ToList();
-            return Ok(allGroups);
+            return Ok(allMembers);
         }
 
 

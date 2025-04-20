@@ -10,7 +10,7 @@ namespace MusicLab.Infrastructure.Repositories
 {
     public class MemberRepository(MusicLabContext ctx) : IMemberRepository
     {
-        public virtual Member Add(Member m)
+        public Member Add(Member m)
         {
             ctx.Members.Add(m);
             ctx.SaveChanges();
@@ -26,12 +26,12 @@ namespace MusicLab.Infrastructure.Repositories
             return ctx.Members.Any(m => m.Username == username);
         }
 
-        public virtual Member? GetMemberById(int id)
+        public Member? GetMemberById(int id)
         {
             return ctx.Members.SingleOrDefault(m => m.Id == id);
         }
 
-        public virtual List<Member> GetAll()
+        public List<Member> GetAll()
         {
             return ctx.Members.ToList();
             //Faire join pour récupérer infos

@@ -12,14 +12,14 @@ namespace MusicLab.Infrastructure.Repositories
     {
         public Project Add(Project p)
         {
-            //ctx.Project.Add(p);
+            ctx.Projects.Add(p);
             ctx.SaveChanges();
             return p;
         }
 
         public bool ExistsProject(string projectName)
         {
-            throw new NotImplementedException();
+            return ctx.Projects.Any(p => p.Name == projectName);
         }
 
         public List<Project> GetAllProjects()
