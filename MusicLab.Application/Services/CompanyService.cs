@@ -34,6 +34,11 @@ namespace MusicLab.Application.Services
             return companyRepository.GetAll();
         }
 
+        public List<Company> GetAllByMemberId(int memberId)
+        {
+            return companyRepository.GetAllByMemberId(memberId);
+        }
+
         public bool ExistsGroup(string groupName)
         {
             return companyRepository.ExistsGroup(groupName);

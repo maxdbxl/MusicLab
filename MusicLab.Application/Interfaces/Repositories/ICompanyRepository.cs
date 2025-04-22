@@ -10,6 +10,8 @@ namespace MusicLab.Application.Interfaces.Repositories
     public interface ICompanyRepository
     {
         List<Company> GetAll();
+
+        List<Company> GetAllByMemberId(int memberId);
         Company Add(Company c);
 
         Company? GetCompanyById(int id);

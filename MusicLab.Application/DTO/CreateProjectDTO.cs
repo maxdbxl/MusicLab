@@ -11,7 +11,7 @@ namespace MusicLab.Application.DTO
     {
         public string Name { get; set; } = null!;
 
-        public List<Company> Companies { get; set; } = null!;
+        public List<int> Companies { get; set; } = null!;
         public DateTime? StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

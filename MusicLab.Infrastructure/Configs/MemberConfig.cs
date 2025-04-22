@@ -26,16 +26,15 @@ namespace MusicLab.Infrastructure.Configs
                     Username = "Henrie",
                     Email = "henrie@branche.be",
                     Role = Domain.Enums.Role.Admin,
-                    Password = "Test1234!",
-                    Companies = []
+                    Password = "Test1234!"
+              
                 },
                 new Member {
                     Id = 2,
                     Username = "Mireillle",
                     Email = "mireille@branche.be",
                     Role = Domain.Enums.Role.Member,
-                    Password = "Test1234!",
-                    Companies = []
+                    Password = "Test1234!"
                 }
                 ]);
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicLab.Infrastructure;
 
@@ -11,9 +12,11 @@ using MusicLab.Infrastructure;
 namespace MusicLab.Infrastructure.Migrations
 {
     [DbContext(typeof(MusicLabContext))]
-    partial class MusicLabContextModelSnapshot : ModelSnapshot
+    [Migration("20250422114012_Seeding_And_MeetingConfig")]
+    partial class Seeding_And_MeetingConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,6 +129,9 @@ namespace MusicLab.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("MemberId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(350)
@@ -138,6 +144,8 @@ namespace MusicLab.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MemberId");
 
                     b.HasIndex("ProjectId");
 
@@ -304,7 +312,7 @@ namespace MusicLab.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("MusicLab.Domain.Entities.Member", "Member")
-                        .WithMany("Invitations")
+                        .WithMany()
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -316,6 +324,10 @@ namespace MusicLab.Infrastructure.Migrations
 
             modelBuilder.Entity("MusicLab.Domain.Entities.Meeting", b =>
                 {
+                    b.HasOne("MusicLab.Domain.Entities.Member", null)
+                        .WithMany("Meetings")
+                        .HasForeignKey("MemberId");
+
                     b.HasOne("MusicLab.Domain.Entities.Project", "Project")
                         .WithMany("Meetings")
                         .HasForeignKey("ProjectId")
@@ -343,7 +355,7 @@ namespace MusicLab.Infrastructure.Migrations
 
             modelBuilder.Entity("MusicLab.Domain.Entities.Member", b =>
                 {
-                    b.Navigation("Invitations");
+                    b.Navigation("Meetings");
 
                     b.Navigation("OwnedProjects");
                 });

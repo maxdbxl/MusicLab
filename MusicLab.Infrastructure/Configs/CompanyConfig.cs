@@ -22,9 +22,7 @@ namespace MusicLab.Infrastructure.Configs
             builder.HasData([
                 new Company {
                     Id = 1,
-                    Name = "Los Branches",
-                    Members = [],
-                    Projects = []
+                    Name = "Los Branches"
                 }
                 ]);
 

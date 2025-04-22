@@ -13,8 +13,12 @@ namespace MusicLab.Infrastructure.Repositories
         public List<Company> GetAll()
         {
             return ctx.Companies.ToList();
-            //Faire join pour récupérer infos
 
+        }
+
+        public List<Company> GetAllByMemberId(int memberId)
+        {
+            return ctx.Companies.Where(c => c.Members.Any(m => m.Id == memberId)).ToList();
         }
         public Company Add(Company c)
         {

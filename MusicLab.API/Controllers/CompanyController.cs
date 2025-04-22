@@ -32,8 +32,14 @@ namespace MusicLab.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll([FromQuery]int? memberId)
         {
+            if (memberId != null)
+            {
+                //.VALUE pour préciser que pas null 
+                List<Company> allGroupsByMemberId = companyService.GetAllByMemberId(memberId.Value);
+                return Ok(allGroupsByMemberId);
+            }
             List<Company> allGroups = companyService.GetAll();
                 return Ok(allGroups);
             //TODO : Try Catch + return NotFound

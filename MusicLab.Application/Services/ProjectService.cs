@@ -11,7 +11,7 @@ using MusicLab.Domain.Entities;
 
 namespace MusicLab.Application.Services
 {
-    public class ProjectService(IProjectRepository projectRepository) : IProjectService
+    public class ProjectService(IProjectRepository projectRepository, ICompanyRepository companyRepository) : IProjectService
     {
         public Project Create(CreateProjectDTO dto)
         {
@@ -20,7 +20,7 @@ namespace MusicLab.Application.Services
                 new Project
                 {
                     Name = dto.Name,
-                    Companies = dto.Companies,
+                    Companies = dto.Companies.Select(id => companyRepository.GetCompanyById(id) ?? throw new Exception()).ToList(),
                     StartDate = dto.StartDate.HasValue ? dto.StartDate.Value : DateTime.Now,
                     EndDate = dto.EndDate
                 });

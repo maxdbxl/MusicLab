@@ -15,8 +15,8 @@ namespace MusicLab.Domain.Entities
         public string Password { get; set; } = null!;
         public Role Role { get; set; }
         public List<Company> Companies { get; set; } = null!;
-        public List<Project> Projects { get; set; } = null!;
-        public List <Meeting> Meetings { get; set; } = null!;
+        public List<Project> OwnedProjects { get; set; } = null!;
+        public List<Invitation> Invitations { get; set; } = null!;
         
 
     }
