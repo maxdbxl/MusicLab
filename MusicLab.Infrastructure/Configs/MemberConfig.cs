@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MusicLab.Application.Utils;
 using MusicLab.Domain.Entities;
 
 namespace MusicLab.Infrastructure.Configs
@@ -13,6 +14,9 @@ namespace MusicLab.Infrastructure.Configs
     {
         public void Configure(EntityTypeBuilder<Member> builder)
         {
+            Guid guid = new("5ef564cb-6596-4592-b7bc-f21db73e1765");
+            Guid guid2 = new("93f1883a-2735-4595-adbc-059acb879af6");
+
             builder.Property(m => m.Username)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -26,7 +30,8 @@ namespace MusicLab.Infrastructure.Configs
                     Username = "Henrie",
                     Email = "henrie@branche.be",
                     Role = Domain.Enums.Role.Admin,
-                    Password = "Test1234!"
+                    Password = PasswordUtils.HashPassword("Test1234!", guid),
+                    Salt = guid
               
                 },
                 new Member {
@@ -34,7 +39,8 @@ namespace MusicLab.Infrastructure.Configs
                     Username = "Mireillle",
                     Email = "mireille@branche.be",
                     Role = Domain.Enums.Role.Member,
-                    Password = "Test1234!"
+                    Password = PasswordUtils.HashPassword("Test1234!", guid2),
+                    Salt = guid2
                 }
                 ]);
 

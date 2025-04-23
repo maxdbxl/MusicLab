@@ -13,6 +13,8 @@ namespace MusicLab.Domain.Entities
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
+
+        public Guid Salt { get; set; }
         public Role Role { get; set; }
         public List<Company> Companies { get; set; } = null!;
         public List<Project> OwnedProjects { get; set; } = null!;
