@@ -12,9 +12,16 @@ namespace MusicLab.Infrastructure.Repositories
 {
     public class AuthRepository(MusicLabContext ctx) : IAuthRepository
     {
+       
+
         public Member? Login(LoginFormDTO dto)
         {
             return ctx.Members.SingleOrDefault(m => m.Username == dto.Username);
+        }
+        
+        public Member? FindById(int id)
+        {
+            return ctx.Members.SingleOrDefault(m => m.Id == id);
         }
     }
 }

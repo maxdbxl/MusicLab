@@ -27,5 +27,11 @@ namespace MusicLab.Application.Services
             }
             return true;
         }
+
+        public Member? FindById(int id)
+        {
+           Member? m = authRepository.FindById(id);
+            return m;
+        }
     }
 }

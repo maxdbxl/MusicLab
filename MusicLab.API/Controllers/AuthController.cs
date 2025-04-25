@@ -41,7 +41,25 @@ namespace MusicLab.API.Controllers
         [HttpGet("refreshToken")]
         public IActionResult RefreshToken([FromQuery]string token)
         {
-            int id = tokenManager.ValidateTokenWithoutLifetime(token);
+
+            try
+            {
+                int id = tokenManager.ValidateTokenWithoutLifetime(token);
+                Member? member = authService.FindById(id);
+                if (member is null)
+                {
+                    return Unauthorized();
+                }
+               
+                string newToken = tokenManager.CreateToken(member.Id, member.Email, member.Role.ToString());
+                return Ok( new { Token = newToken });
+            }
+
+            catch (Exception)
+            {
+                return Unauthorized();
+            }
+            
         }
     }
 }

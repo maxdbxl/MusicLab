@@ -8,7 +8,7 @@ namespace MusicLab.Domain.Enums
 {
     public enum Role
     {
-        Member,
-        Admin
+        Member = 0,
+        Admin = 1
     }
 }

@@ -12,8 +12,8 @@ using MusicLab.Infrastructure;
 namespace MusicLab.Infrastructure.Migrations
 {
     [DbContext(typeof(MusicLabContext))]
-    [Migration("20250422114012_Seeding_And_MeetingConfig")]
-    partial class Seeding_And_MeetingConfig
+    [Migration("20250425134742_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,9 +129,6 @@ namespace MusicLab.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(350)
@@ -144,8 +141,6 @@ namespace MusicLab.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MemberId");
 
                     b.HasIndex("ProjectId");
 
@@ -193,6 +188,9 @@ namespace MusicLab.Infrastructure.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("Salt")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -213,16 +211,18 @@ namespace MusicLab.Infrastructure.Migrations
                         {
                             Id = 1,
                             Email = "henrie@branche.be",
-                            Password = "Test1234!",
+                            Password = ":��+���+�3����m�P,���\0���ʧ)�}�6R�@�w-���w+&M��G(_D��i`$=x",
                             Role = 1,
+                            Salt = new Guid("5ef564cb-6596-4592-b7bc-f21db73e1765"),
                             Username = "Henrie"
                         },
                         new
                         {
                             Id = 2,
                             Email = "mireille@branche.be",
-                            Password = "Test1234!",
+                            Password = "�N�QJ-���;�n��rV���T��W�И�Ÿ5I�\re�w�1�g����w����whzɁyz�",
                             Role = 0,
+                            Salt = new Guid("93f1883a-2735-4595-adbc-059acb879af6"),
                             Username = "Mireillle"
                         });
                 });
@@ -312,7 +312,7 @@ namespace MusicLab.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("MusicLab.Domain.Entities.Member", "Member")
-                        .WithMany()
+                        .WithMany("Invitations")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -324,10 +324,6 @@ namespace MusicLab.Infrastructure.Migrations
 
             modelBuilder.Entity("MusicLab.Domain.Entities.Meeting", b =>
                 {
-                    b.HasOne("MusicLab.Domain.Entities.Member", null)
-                        .WithMany("Meetings")
-                        .HasForeignKey("MemberId");
-
                     b.HasOne("MusicLab.Domain.Entities.Project", "Project")
                         .WithMany("Meetings")
                         .HasForeignKey("ProjectId")
@@ -355,7 +351,7 @@ namespace MusicLab.Infrastructure.Migrations
 
             modelBuilder.Entity("MusicLab.Domain.Entities.Member", b =>
                 {
-                    b.Navigation("Meetings");
+                    b.Navigation("Invitations");
 
                     b.Navigation("OwnedProjects");
                 });

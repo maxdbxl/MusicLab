@@ -23,6 +23,7 @@ namespace MusicLab.Infrastructure.Configs
 
             builder.HasIndex(m => m.Username).IsUnique();
             builder.HasIndex(m => m.Email).IsUnique();
+            builder.Property(m => m.Salt).IsRequired();
 
             builder.HasData([
                 new Member {

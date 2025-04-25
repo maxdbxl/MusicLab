@@ -47,7 +47,19 @@ namespace MusicLab.Application.Security
 
         public int ValidateTokenWithoutLifetime(string token)
         {
-            throw new NotImplementedException();
+            JwtSecurityTokenHandler handler = new();
+            TokenValidationParameters validationParameters = new()
+            {
+                ValidateIssuer = true,
+                ValidIssuer = config.Issuer,
+                ValidateAudience = true,
+                ValidAudience = config.Audience,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.Secret)),
+                ValidateLifetime = false
+            };
+            var result = handler.ValidateToken(token, validationParameters, out SecurityToken s);
+            return int.Parse(result?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "-1");
         }
     }
 }

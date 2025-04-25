@@ -11,6 +11,7 @@ namespace MusicLab.Application.Interfaces.Repositories
 {
     public interface IAuthRepository
     {
+        Member? FindById(int id);
         Member? Login(LoginFormDTO dto);
     }
 }

@@ -23,6 +23,7 @@ namespace MusicLab.Infrastructure
             modelBuilder.ApplyConfiguration(new CompanyConfig());
             modelBuilder.ApplyConfiguration(new ProjectConfig());
             modelBuilder.ApplyConfiguration(new MeetingConfig());
+            
         
         }
     }

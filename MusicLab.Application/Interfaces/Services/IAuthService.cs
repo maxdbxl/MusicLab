@@ -13,5 +13,7 @@ namespace MusicLab.Application.Interfaces.Services
         Member? Login(LoginFormDTO dto);
 
         bool CheckPassword(string password, Guid salt, string dbPassword);
+
+        Member? FindById(int id);
     }
 }
