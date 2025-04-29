@@ -362,4 +362,3 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /MusicLab.API/appsettings.json
-/MusicLab.API/appsettings.Development.json
