@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicLab.API.Extensions;
 using MusicLab.Application.DTO;
 using MusicLab.Application.Interfaces.Services;
 using MusicLab.Domain.Entities;
@@ -15,14 +18,15 @@ namespace MusicLab.API.Controllers
         // union :=> renvoi de la liste d'objets EventDTO (id, nom, etc.)
 
         [HttpGet]
-        public IActionResult GetMeetingsByMemberId([FromQuery] int memberId)
+        [Authorize]
+        public IActionResult GetMeetingsByMemberId()
         {
-            if (memberId != null)
-            {
+
+            
                 try
                 {
-                    List<Meeting> mEvents = meetingService.GetMeetingsByMemberId(memberId);
-                    List<PersonalEvent> peEvents = personalEventService.GetEventsByMemberId(memberId);
+                    List<Meeting> mEvents = meetingService.GetMeetingsByMemberId(User.GetId());
+                    List<PersonalEvent> peEvents = personalEventService.GetEventsByMemberId(User.GetId());
 
                     List<EventDTO> events = [
                         ..peEvents.Select(pe => new EventDTO(pe)),
@@ -36,8 +40,7 @@ namespace MusicLab.API.Controllers
                     return NotFound();
                 }
                 
-            }
-            return BadRequest();
+          
 
             
         }
