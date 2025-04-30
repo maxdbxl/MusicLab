@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MusicLab.Domain.Enums
+{
+    public enum EventType
+    {
+        Repetition,
+        Representation,
+        OrganisationalMeeting,
+        LogisticalMeeting,
+        PersonalEvent,
+        Other
+    }
+}

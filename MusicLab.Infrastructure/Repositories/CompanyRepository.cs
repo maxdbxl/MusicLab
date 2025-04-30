@@ -30,6 +30,7 @@ namespace MusicLab.Infrastructure.Repositories
         public Company? GetCompanyById(int id)
         {
             return ctx.Companies.SingleOrDefault(c => c.Id == id);
+            //.includes avt SoD
         }
 
         public bool ExistsGroup(string groupName)

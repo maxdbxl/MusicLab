@@ -19,7 +19,7 @@ namespace MusicLab.Domain.Entities
         public List<Company> Companies { get; set; } = null!;
         public List<Project> OwnedProjects { get; set; } = null!;
         public List<Invitation> Invitations { get; set; } = null!;
-        
 
+        public List<PersonalEvent> PersonalEvents { get; set; } = null!;
     }
 }

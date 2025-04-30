@@ -9,13 +9,13 @@ using MusicLab.Domain.Entities;
 
 namespace MusicLab.Application.Services
 {
-    public class MeetingService(IMeetingRepository meetingRepository) : IMeetingService
+    public class PersonalEventService(IPersonalEventRepository personalEventRepository) : IPersonalEventService
     {
-
-        public List<Meeting> GetMeetingsByMemberId(int memberId)
+        public List<PersonalEvent> GetEventsByMemberId(int memberId)
         {
-            return meetingRepository.GetMeetingsByMemberId(memberId);
-        }
+            return personalEventRepository.GetAllPersonalEventsByMemberId(memberId);
 
-    }  
+
+        }
+    }
 }

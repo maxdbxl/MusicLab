@@ -7,8 +7,8 @@ using MusicLab.Domain.Entities;
 
 namespace MusicLab.Application.Interfaces.Repositories
 {
-    public interface IMeetingRepository
+    public interface IPersonalEventRepository
     {
-        List<Meeting> GetMeetingsByMemberId(int memberId);
+        List<PersonalEvent> GetAllPersonalEventsByMemberId(int memberId);
     }
 }

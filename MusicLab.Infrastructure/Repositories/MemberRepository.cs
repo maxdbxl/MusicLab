@@ -38,6 +38,5 @@ namespace MusicLab.Infrastructure.Repositories
 
         }
 
-        
     }
 }

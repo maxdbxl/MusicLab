@@ -24,6 +24,7 @@ namespace MusicLab.Infrastructure.Configs
                     Location = "Local C1",
                     StartTime = new DateTime(2025, 5, 11, 18, 30, 0),
                     EndTime = new DateTime(2025, 5, 11, 21, 0, 0),
+                    EventType = Domain.Enums.EventType.Repetition,
                     ProjectId = 1
                 },
                 new Meeting {
@@ -31,9 +32,9 @@ namespace MusicLab.Infrastructure.Configs
                     Name = "Répétition du jeudi",
                     Description = "répétition chant",
                     Location = "Local B3",
-
                     StartTime = new DateTime(2025, 5, 12, 18, 30, 0),
                     EndTime = new DateTime(2025, 5, 12, 21, 0, 0),
+                    EventType= Domain.Enums.EventType.Repetition,
                     ProjectId = 1
                 }
                 ]);
