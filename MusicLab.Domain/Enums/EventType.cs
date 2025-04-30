@@ -8,11 +8,11 @@ namespace MusicLab.Domain.Enums
 {
     public enum EventType
     {
-        Repetition = 1,
-        Representation = 2,
-        OrganisationalMeeting = 3,
-        LogisticalMeeting = 4,
-        PersonalEvent = 5,
-        Other = 6
+        Repetition,
+        Representation,
+        OrganisationalMeeting,
+        LogisticalMeeting,
+        PersonalEvent,
+        Other
     }
 }
