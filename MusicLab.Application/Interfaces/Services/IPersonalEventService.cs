@@ -7,8 +7,9 @@ using MusicLab.Domain.Entities;
 
 namespace MusicLab.Application.Interfaces.Services
 {
-    public interface IMeetingService
+    public interface IPersonalEventService
     {
-        List<Meeting> GetMeetingsByMemberId(int memberId);
+        
+        List<PersonalEvent> GetEventsByMemberId(int memberId);
     }
 }
