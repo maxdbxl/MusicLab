@@ -16,6 +16,9 @@ namespace MusicLab.Infrastructure.Configs
         {
             Guid guid = new("5ef564cb-6596-4592-b7bc-f21db73e1765");
             Guid guid2 = new("93f1883a-2735-4595-adbc-059acb879af6");
+            Guid guid3 = new("bad0da15-86e8-4a7d-b310-880842b11982");
+            Guid guid4 = new("d184818a-aef1-4357-ab08-4cd1aecbac70");
+            Guid guid5 = new("157e0e7f-4ead-46f4-9c49-a663c89e181a");
 
             builder.Property(m => m.Username)
                 .IsRequired()
@@ -37,12 +40,36 @@ namespace MusicLab.Infrastructure.Configs
                 },
                 new Member {
                     Id = 2,
-                    Username = "Mireillle",
+                    Username = "Mireille",
                     Email = "mireille@branche.be",
                     Role = Domain.Enums.Role.Member,
                     Password = PasswordUtils.HashPassword("Test1234!", guid2),
                     Salt = guid2
-                }
+                },
+                new Member {
+                    Id = 3,
+                    Username = "Jeanine",
+                    Email = "jeanine@branche.be",
+                    Role = Domain.Enums.Role.Member,
+                    Password = PasswordUtils.HashPassword("Test1234!", guid3),
+                    Salt = guid2
+                },
+                new Member {
+                    Id = 4,
+                    Username = "Colette",
+                    Email = "colette@branche.be",
+                    Role = Domain.Enums.Role.Member,
+                    Password = PasswordUtils.HashPassword("Test1234!", guid4),
+                    Salt = guid2
+                },
+                new Member {
+                    Id = 5,
+                    Username = "Lison",
+                    Email = "lison@branche.be",
+                    Role = Domain.Enums.Role.Member,
+                    Password = PasswordUtils.HashPassword("Test1234!", guid5),
+                    Salt = guid2
+                },
                 ]);
 
         }

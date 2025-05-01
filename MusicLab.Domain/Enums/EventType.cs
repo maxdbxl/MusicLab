@@ -9,9 +9,9 @@ namespace MusicLab.Domain.Enums
     public enum EventType
     {
         Repetition,
-        Representation,
-        OrganisationalMeeting,
-        LogisticalMeeting,
+        Performance,
+        OrganizationalMeeting,
+        LogisticsMeeting,
         PersonalEvent,
         Other
     }

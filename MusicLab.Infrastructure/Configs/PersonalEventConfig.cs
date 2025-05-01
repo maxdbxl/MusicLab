@@ -18,9 +18,9 @@ namespace MusicLab.Infrastructure.Configs
             builder.HasData([
                 new PersonalEvent {
                     Id = 1,
-                    Name = "Travail PDT",
-                    Description = "",
-                    Location = "Palais des thés",
+                    Name = "Palais des thés",
+                    Description = "Remplacement Gaby",
+                    Location = "Boutique Louise",
                     StartTime = new DateTime(2025, 5, 12, 9, 30, 0),
                     EndTime = new DateTime(2025, 5, 12, 17, 0, 0),
                     EventType = Domain.Enums.EventType.PersonalEvent,
@@ -28,13 +28,23 @@ namespace MusicLab.Infrastructure.Configs
                 },
                 new PersonalEvent {
                     Id = 2,
-                    Name = "Resto",
-                    Description = "",
-                    Location = "Nona",
+                    Name = "Resto AICOM",
+                    Description = "Resto fin des exams",
+                    Location = "Nona Mérode",
                     StartTime = new DateTime(2025, 5, 12, 21, 15, 0),
                     EndTime = new DateTime(2025, 5, 12, 22, 30, 0),
                     EventType = Domain.Enums.EventType.PersonalEvent,
                     MemberId = 1
+                },
+                new PersonalEvent {
+                    Id = 3,
+                    Name = "Resto AICOM",
+                    Description = "Resto fin des exams",
+                    Location = "Nona Mérode",
+                    StartTime = new DateTime(2025, 5, 12, 21, 15, 0),
+                    EndTime = new DateTime(2025, 5, 12, 22, 30, 0),
+                    EventType = Domain.Enums.EventType.PersonalEvent,
+                    MemberId = 2
                 }
                 ]);
         }

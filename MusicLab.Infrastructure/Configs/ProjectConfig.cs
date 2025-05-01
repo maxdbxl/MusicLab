@@ -26,6 +26,22 @@ namespace MusicLab.Infrastructure.Configs
                     UpdateDate = new DateTime(2025, 4, 18),
                     EndDate = new DateTime(2025, 8, 30),
                     OwnerId = 1
+                },
+                new Project {
+                    Id = 2,
+                    Name = "Chicago",
+                    StartDate = new DateTime(2025, 5, 1),
+                    UpdateDate = new DateTime(2025, 5, 1),
+                    EndDate = new DateTime(2025, 8, 30),
+                    OwnerId = 2
+                },
+                new Project {
+                    Id = 3,
+                    Name = "The Book of Mormon",
+                    StartDate = new DateTime(2025, 5, 1),
+                    UpdateDate = new DateTime(2025, 5, 1),
+                    EndDate = new DateTime(2025, 9, 30),
+                    OwnerId = 1
                 }
                 ]);
         }

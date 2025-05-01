@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicLab.Infrastructure;
 
@@ -11,9 +12,11 @@ using MusicLab.Infrastructure;
 namespace MusicLab.Infrastructure.Migrations
 {
     [DbContext(typeof(MusicLabContext))]
-    partial class MusicLabContextModelSnapshot : ModelSnapshot
+    [Migration("20250430211621_FixTest")]
+    partial class FixTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,21 +80,6 @@ namespace MusicLab.Infrastructure.Migrations
                         {
                             Id = 1,
                             Name = "Los Branches"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "AICOM"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Compagnie Dalché"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Brussels Musical Creative"
                         });
                 });
 
@@ -171,7 +159,7 @@ namespace MusicLab.Infrastructure.Migrations
                             Location = "Local C1",
                             Name = "Répétition du mercredi",
                             ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 14, 18, 30, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2025, 5, 11, 18, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -183,72 +171,6 @@ namespace MusicLab.Infrastructure.Migrations
                             Name = "Répétition du jeudi",
                             ProjectId = 1,
                             StartTime = new DateTime(2025, 5, 12, 18, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Travail sur la mise en scène de l'acte 2",
-                            EndTime = new DateTime(2025, 5, 14, 17, 30, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 0,
-                            Location = "Salle Polyvalente",
-                            Name = "Atelier mise en scène",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Répétition complète avec costumes et décors",
-                            EndTime = new DateTime(2025, 5, 18, 22, 0, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 0,
-                            Location = "Théâtre Municipal",
-                            Name = "Répétition générale",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 18, 19, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Sélection pour les seconds rôles",
-                            EndTime = new DateTime(2025, 5, 10, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 5,
-                            Location = "Studio 1",
-                            Name = "Auditions complémentaires",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 10, 10, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Première représentation de la comédie musicale",
-                            EndTime = new DateTime(2025, 5, 24, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 1,
-                            Location = "Théâtre de la Ville",
-                            Name = "Représentation publique",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 24, 20, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Présentation du budget, point sur les sponsors et choix des affiches",
-                            EndTime = new DateTime(2025, 5, 15, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 2,
-                            Location = "Salle B3",
-                            Name = "Réunion Budget & Communication",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 15, 20, 30, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Visite coulisses & scène, vérification matos",
-                            EndTime = new DateTime(2025, 5, 15, 17, 30, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 3,
-                            Location = "Théâtre de la Ville",
-                            Name = "Rencontre de l'équipe technique",
-                            ProjectId = 1,
-                            StartTime = new DateTime(2025, 5, 15, 15, 30, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -306,34 +228,7 @@ namespace MusicLab.Infrastructure.Migrations
                             Password = "�N�QJ-���;�n��rV���T��W�И�Ÿ5I�\re�w�1�g����w����whzɁyz�",
                             Role = 0,
                             Salt = new Guid("93f1883a-2735-4595-adbc-059acb879af6"),
-                            Username = "Mireille"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "jeanine@branche.be",
-                            Password = "^�<��d�rS!�a�<�4���G�Դ��[A���~���5�9�tiK����@�pu �'�\"�$",
-                            Role = 0,
-                            Salt = new Guid("93f1883a-2735-4595-adbc-059acb879af6"),
-                            Username = "Jeanine"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Email = "colette@branche.be",
-                            Password = "C��x��O|5����nZ�(�d��M��Bӏ)oW��7Ń�i}�jn�5��u�R�pS�m]���",
-                            Role = 0,
-                            Salt = new Guid("93f1883a-2735-4595-adbc-059acb879af6"),
-                            Username = "Colette"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Email = "lison@branche.be",
-                            Password = "k�p��3�����_�e<&�\\�C�`;�7%=�A����a1M���]*�Vv,̯54N��s�BEZ�",
-                            Role = 0,
-                            Salt = new Guid("93f1883a-2735-4595-adbc-059acb879af6"),
-                            Username = "Lison"
+                            Username = "Mireillle"
                         });
                 });
 
@@ -380,34 +275,23 @@ namespace MusicLab.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Remplacement Gaby",
+                            Description = "",
                             EndTime = new DateTime(2025, 5, 12, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             EventType = 4,
-                            Location = "Boutique Louise",
+                            Location = "Palais des thés",
                             MemberId = 1,
-                            Name = "Palais des thés",
+                            Name = "Travail PDT",
                             StartTime = new DateTime(2025, 5, 12, 9, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Resto fin des exams",
+                            Description = "",
                             EndTime = new DateTime(2025, 5, 12, 22, 30, 0, 0, DateTimeKind.Unspecified),
                             EventType = 4,
-                            Location = "Nona Mérode",
+                            Location = "Nona",
                             MemberId = 1,
-                            Name = "Resto AICOM",
-                            StartTime = new DateTime(2025, 5, 12, 21, 15, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Resto fin des exams",
-                            EndTime = new DateTime(2025, 5, 12, 22, 30, 0, 0, DateTimeKind.Unspecified),
-                            EventType = 4,
-                            Location = "Nona Mérode",
-                            MemberId = 2,
-                            Name = "Resto AICOM",
+                            Name = "Resto",
                             StartTime = new DateTime(2025, 5, 12, 21, 15, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -455,24 +339,6 @@ namespace MusicLab.Infrastructure.Migrations
                             OwnerId = 1,
                             StartDate = new DateTime(2025, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UpdateDate = new DateTime(2025, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EndDate = new DateTime(2025, 8, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Chicago",
-                            OwnerId = 2,
-                            StartDate = new DateTime(2025, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdateDate = new DateTime(2025, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EndDate = new DateTime(2025, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "The Book of Mormon",
-                            OwnerId = 1,
-                            StartDate = new DateTime(2025, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UpdateDate = new DateTime(2025, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 

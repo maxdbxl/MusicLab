@@ -23,6 +23,18 @@ namespace MusicLab.Infrastructure.Configs
                 new Company {
                     Id = 1,
                     Name = "Los Branches"
+                },
+                new Company {
+                    Id = 2,
+                    Name = "AICOM"
+                },
+                new Company {
+                    Id = 3,
+                    Name = "Compagnie Dalché"
+                },
+                new Company {
+                    Id = 4,
+                    Name = "Brussels Musical Creative"
                 }
                 ]);
 
