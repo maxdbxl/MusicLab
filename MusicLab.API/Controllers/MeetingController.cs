@@ -41,5 +41,13 @@ namespace MusicLab.API.Controllers
 
             
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] CreateMeetingDTO dto)
+        {
+            Meeting m = meetingService.Create(dto);
+            EventDTO mDTO = new(m);
+            return Created("meeting/" + mDTO.Id, mDTO);
+        }
     }
 }

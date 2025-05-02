@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MusicLab.Domain.Entities;
+using MusicLab.Domain.Enums;
+
+namespace MusicLab.Application.DTO
+{
+    public class CreateMeetingDTO
+    {
+        public string Name { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public string Location { get; set; } = null!;
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public EventType EventType { get; set; }
+        public int ProjectId { get; set; }
+        //public Project Project { get; set; } = null!;
+        //public List<Invitation> Invitations { get; set; } = null!;
+        public List<int> MembersId { get; set; } = null!;
+    }
+}

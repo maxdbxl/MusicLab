@@ -9,6 +9,7 @@ namespace MusicLab.Application.Interfaces.Repositories
 {
     public interface IMeetingRepository
     {
+        Meeting Add(Meeting m);
         List<Meeting> GetMeetingsByMemberId(int memberId);
     }
 }
