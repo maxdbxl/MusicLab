@@ -13,6 +13,6 @@ namespace MusicLab.Application.DTO
         public string Username { get; set; } = m.Username;
         public string Email { get; set; } = m.Email;
 
-
+        
     }
 }

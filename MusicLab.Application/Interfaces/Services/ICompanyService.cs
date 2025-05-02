@@ -12,13 +12,15 @@ namespace MusicLab.Application.Interfaces.Services
     {
         Company Create(CreateCompanyDTO dto);
 
-        Company GetById(int id);
+        Company GetById(int id, int connectedUserId);
 
         List<Company> GetAll();
 
         bool ExistsGroup(string group);
 
         List<Company> GetAllByMemberId(int memberId);
-
+        Company? GetCompanyByIdWithMembers(int id);
+        void AddMemberToCompany(int companyId, int memberId);
+        
     }
 }

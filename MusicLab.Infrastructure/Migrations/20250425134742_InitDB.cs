@@ -88,7 +88,7 @@ namespace MusicLab.Infrastructure.Migrations
                         column: x => x.OwnerId,
                         principalTable: "Members",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

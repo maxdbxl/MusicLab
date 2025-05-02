@@ -6,7 +6,7 @@ namespace MusicLab.API.Extensions
     {
         public static int GetId(this ClaimsPrincipal user)
         {
-            return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new Exception());
+            return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "-1");
         }
     }
 }

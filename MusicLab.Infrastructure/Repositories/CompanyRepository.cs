@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MusicLab.Application.Interfaces.Repositories;
 using MusicLab.Domain.Entities;
 
@@ -30,13 +31,37 @@ namespace MusicLab.Infrastructure.Repositories
         public Company? GetCompanyById(int id)
         {
             return ctx.Companies.SingleOrDefault(c => c.Id == id);
-            //.includes avt SoD
+            
         }
+
+        //public void AddNewMemberToCompany(Company company)
+        //{
+        //    ctx.Companies.Update(company);
+        //}
 
         public bool ExistsGroup(string groupName)
         {
             return ctx.Companies.Any(m => m.Name == groupName);
         }
 
+        public Company? GetCompanyByIdWithMembers(int id)
+        {
+            return ctx.Companies.Include(c => c.Members).SingleOrDefault(c => c.Id == id);
+        }
+        public Company? GetCompanyByIdWithProjects(int id)
+        {
+            return ctx.Companies.Include(c => c.Projects).SingleOrDefault(c => c.Id == id);
+        }
+
+        public Company? GetCompanyByIdWithMembersAndProjects(int id)
+        {
+            return ctx.Companies.Include(c => c.Members).Include(c => c.Projects).SingleOrDefault(c => c.Id == id);
+        }
+
+        public void Update(Company company)
+        {
+            ctx.Update(company);
+            ctx.SaveChanges();
+        }
     }
 }

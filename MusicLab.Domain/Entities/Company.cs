@@ -10,8 +10,8 @@ namespace MusicLab.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public List<Member> Members { get; set; } = null!;
-        public List<Project> Projects { get; set; } = null!;
+        public List<Member> Members { get; set; } = [];
+        public List<Project> Projects { get; set; } = [];
 
     }
 }

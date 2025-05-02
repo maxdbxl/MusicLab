@@ -12,7 +12,6 @@ namespace MusicLab.Domain.Entities
         public string Name { get; set; } = null!;
         public List<Company> Companies { get; set; } = null!;
         public List<Meeting> Meetings { get; set; } = null!;
-
         public int OwnerId  { get; set; }
         public Member Owner { get; set; } = null!;
         public DateTime StartDate { get; set; }

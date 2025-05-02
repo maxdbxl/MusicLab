@@ -21,8 +21,7 @@ namespace MusicLab.API.Controllers
         [Authorize]
         public IActionResult GetMeetingsByMemberId()
         {
-
-            
+   
                 try
                 {
                     List<Meeting> mEvents = meetingService.GetMeetingsByMemberId(User.GetId());
@@ -39,8 +38,6 @@ namespace MusicLab.API.Controllers
                 {
                     return NotFound();
                 }
-                
-          
 
             
         }

@@ -17,6 +17,10 @@ namespace MusicLab.Application.Interfaces.Repositories
         Company? GetCompanyById(int id);
 
         bool ExistsGroup(string groupName);
+        Company? GetCompanyByIdWithMembers(int id);
 
+    
+        void Update(Company company);
+        Company? GetCompanyByIdWithMembersAndProjects(int id);
     }
 }
