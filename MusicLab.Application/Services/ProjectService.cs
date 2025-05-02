@@ -13,7 +13,7 @@ namespace MusicLab.Application.Services
 {
     public class ProjectService(IProjectRepository projectRepository, ICompanyRepository companyRepository) : IProjectService
     {
-        public Project Create(CreateProjectDTO dto)
+        public Project Create(CreateProjectDTO dto, int ownerId)
         {
             Project p = projectRepository.Add(
 
@@ -22,7 +22,9 @@ namespace MusicLab.Application.Services
                     Name = dto.Name,
                     Companies = dto.Companies.Select(id => companyRepository.GetCompanyById(id) ?? throw new Exception()).ToList(),
                     StartDate = dto.StartDate.HasValue ? dto.StartDate.Value : DateTime.Now,
-                    EndDate = dto.EndDate
+                    EndDate = dto.EndDate,
+                    OwnerId = ownerId,
+
                 });
             return p;
         }

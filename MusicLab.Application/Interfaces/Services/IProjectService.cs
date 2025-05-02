@@ -10,7 +10,7 @@ namespace MusicLab.Application.Interfaces.Services
 {
     public interface IProjectService
     {
-        Project Create(CreateProjectDTO dto);
+        Project Create(CreateProjectDTO dto, int ownerId);
 
         Project GetById(int id);
 

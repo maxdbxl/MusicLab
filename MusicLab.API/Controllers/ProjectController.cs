@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicLab.API.Extensions;
 using MusicLab.Application.DTO;
 using MusicLab.Application.Interfaces.Services;
 using MusicLab.Domain.Entities;
@@ -12,10 +14,11 @@ namespace MusicLab.API.Controllers
     {
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody] CreateProjectDTO dto)
         {
-            Project p = projectService.Create(dto);
-            return Created("project/" + p.Id, p);
+            Project p = projectService.Create(dto, User.GetId());
+            return Created();
         }
 
         [HttpHead]
