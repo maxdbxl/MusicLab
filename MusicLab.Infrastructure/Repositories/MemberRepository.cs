@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MusicLab.Application.Interfaces.Repositories;
 using MusicLab.Domain.Entities;
 
@@ -37,6 +38,11 @@ namespace MusicLab.Infrastructure.Repositories
             //Faire join pour récupérer infos
 
         }
+
+        //public List<Member> GetAllByProjectId(int groupId, int projectId)
+        //{
+        //    //return ctx.Members.Include(m => m.Companies).Include(m => m.Projects).Any()
+        //}
 
     }
 }
