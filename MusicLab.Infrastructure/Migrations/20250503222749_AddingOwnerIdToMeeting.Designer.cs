@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicLab.Infrastructure;
 
@@ -11,9 +12,11 @@ using MusicLab.Infrastructure;
 namespace MusicLab.Infrastructure.Migrations
 {
     [DbContext(typeof(MusicLabContext))]
-    partial class MusicLabContextModelSnapshot : ModelSnapshot
+    [Migration("20250503222749_AddingOwnerIdToMeeting")]
+    partial class AddingOwnerIdToMeeting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

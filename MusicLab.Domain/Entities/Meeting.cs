@@ -16,6 +16,7 @@ namespace MusicLab.Domain.Entities
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public EventType EventType { get; set; }
+        public int OwnerId { get; set; }
         public int ProjectId { get; set; }
         public Project Project { get; set; } = null!;
         public List<Invitation> Invitations { get; set; } = null!;

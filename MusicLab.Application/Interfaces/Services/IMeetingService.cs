@@ -12,6 +12,7 @@ namespace MusicLab.Application.Interfaces.Services
     {
         List<Meeting> GetMeetingsByMemberId(int memberId);
 
-        Meeting Create(CreateMeetingDTO dto);
+        Meeting Create(CreateMeetingDTO dto, int ownerId);
+        List<Meeting> GetNextTenMeetingsByProjectId(int id);
     }
 }

@@ -11,5 +11,6 @@ namespace MusicLab.Application.Interfaces.Repositories
     {
         Meeting Add(Meeting m);
         List<Meeting> GetMeetingsByMemberId(int memberId);
+        List<Meeting> GetNextTenMeetingsByProjectId(int id);
     }
 }

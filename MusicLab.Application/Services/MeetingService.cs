@@ -13,7 +13,7 @@ namespace MusicLab.Application.Services
 {
     public class MeetingService(IMeetingRepository meetingRepository) : IMeetingService
     {
-        public Meeting Create(CreateMeetingDTO dto)
+        public Meeting Create(CreateMeetingDTO dto, int ownerId)
         {
             //var invitations = dto.MembersId
             //    .Select(id => new Invitation
@@ -34,6 +34,7 @@ namespace MusicLab.Application.Services
                     StartTime = dto.StartTime,
                     EndTime = dto.EndTime,
                     EventType = dto.EventType,
+                    OwnerId = ownerId,
                     ProjectId = dto.ProjectId,
                     //Project = dto.Project.Select
                     Invitations = dto.MembersId
@@ -55,5 +56,9 @@ namespace MusicLab.Application.Services
             return meetingRepository.GetMeetingsByMemberId(memberId);
         }
 
+        public List<Meeting> GetNextTenMeetingsByProjectId(int id)
+        {
+            return meetingRepository.GetNextTenMeetingsByProjectId(id);
+        }
     }  
 }

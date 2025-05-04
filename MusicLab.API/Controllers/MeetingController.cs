@@ -39,13 +39,29 @@ namespace MusicLab.API.Controllers
                     return NotFound();
                 }
 
-            
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetNextTenMeetingsByProjectId([FromRoute]int id)
+        {
+            try
+            {
+                List<Meeting> mEvents = meetingService.GetNextTenMeetingsByProjectId(id);
+
+                List<EventDTO> events = mEvents.Select(e => new EventDTO(e)).ToList();
+
+                return Ok(events);
+
+            } catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] CreateMeetingDTO dto)
         {
-            Meeting m = meetingService.Create(dto);
+            Meeting m = meetingService.Create(dto, User.GetId());
             EventDTO mDTO = new(m);
             return Created("meeting/" + mDTO.Id, mDTO);
         }
