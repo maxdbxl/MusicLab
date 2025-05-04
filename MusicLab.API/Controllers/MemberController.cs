@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MusicLab.Application.DTO;
 using MusicLab.Application.Interfaces.Services;
@@ -73,6 +74,24 @@ namespace MusicLab.API.Controllers
             return Ok(allMembers);
         }
 
+        [HttpPatch]
+        public IActionResult ChangeAvailibility([FromBody] ChangeAvailabilityRequestDTO dto)
+        {
+            try
+            {
+                bool result = memberService.ChangeAvailibility(dto.MemberId, dto.MeetingId, dto.Availability);
+                if(!result)
+                {
+                    return NotFound(result);
+                }
+                return Ok(result);
+
+            } 
+            catch (Exception) 
+            { 
+                return StatusCode(500); 
+            }
+        }
        
     }
 }

@@ -19,6 +19,6 @@ namespace MusicLab.Application.Interfaces.Services
         List<Member> GetAll();
 
         List<Invitation> GetMembersAndInvitationsByMeetingId(int meetingId);
-
+        bool ChangeAvailibility(int memberId, int meetingId, string availability);
     }
 }

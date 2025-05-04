@@ -49,5 +49,24 @@ namespace MusicLab.Application.Services
         {
             return memberRepository.GetMembersAndInvitationsByMeetingId(meetingId);
         }
+
+        public bool ChangeAvailibility(int memberId, int meetingId, string availability)
+        {
+            Member? member = memberRepository.GetMemberById(memberId);
+            if (member == null)
+            {
+                return false;
+            }
+            if (member.Id == memberId)
+            {
+                memberRepository.ChangeAvailibility(memberId, meetingId, availability);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

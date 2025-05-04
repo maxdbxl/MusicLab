@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MusicLab.Application.Interfaces.Repositories;
 using MusicLab.Domain.Entities;
+using MusicLab.Domain.Enums;
 
 namespace MusicLab.Infrastructure.Repositories
 {
@@ -43,6 +44,32 @@ namespace MusicLab.Infrastructure.Repositories
         {
             return ctx.Invitations.Where(i => i.MeetingId == meetingId).Include(i => i.Member).Include(i => i.Meeting).ToList();
 
+                
+        }
+
+        public bool ChangeAvailibility(int memberId, int meetingId, string availability)
+        {
+
+            Invitation? invitationToUpdate = ctx.Invitations.SingleOrDefault(i => i.MeetingId == meetingId && i.MemberId == memberId);
+
+            if (invitationToUpdate == null)
+            {
+                return false;
+            }
+            if (availability == Availability.Available.ToString())
+            {
+                invitationToUpdate.Availability = Availability.Available;
+            }
+            else if (availability == Availability.Unavailable.ToString())
+            {
+                invitationToUpdate.Availability = Availability.Unavailable;
+            } else
+            {
+                return false;
+            }
+
+            ctx.SaveChanges();
+            return true;
                 
         }
 
