@@ -18,6 +18,7 @@ namespace MusicLab.Application.Interfaces.Services
         Member GetById(int id);
         List<Member> GetAll();
 
+        List<Invitation> GetMembersAndInvitationsByMeetingId(int meetingId);
 
     }
 }

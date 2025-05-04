@@ -44,5 +44,10 @@ namespace MusicLab.Application.Services
         {
             return memberRepository.GetAll();
         }
+
+        public List<Invitation> GetMembersAndInvitationsByMeetingId(int meetingId)
+        {
+            return memberRepository.GetMembersAndInvitationsByMeetingId(meetingId);
+        }
     }
 }

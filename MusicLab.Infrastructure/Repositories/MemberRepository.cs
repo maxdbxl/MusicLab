@@ -39,6 +39,13 @@ namespace MusicLab.Infrastructure.Repositories
 
         }
 
+        public List<Invitation> GetMembersAndInvitationsByMeetingId(int meetingId)
+        {
+            return ctx.Invitations.Where(i => i.MeetingId == meetingId).Include(i => i.Member).Include(i => i.Meeting).ToList();
+
+                
+        }
+
         //public List<Member> GetAllByProjectId(int groupId, int projectId)
         //{
         //    //return ctx.Members.Include(m => m.Companies).Include(m => m.Projects).Any()

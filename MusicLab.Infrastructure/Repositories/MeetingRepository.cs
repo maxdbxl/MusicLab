@@ -19,12 +19,17 @@ namespace MusicLab.Infrastructure.Repositories
 
         public List<Meeting> GetMeetingsByMemberId(int memberId)
         {
-            return ctx.Invitations.Where(i => i.MemberId == memberId && i.Availability != Domain.Enums.Availability.Unavailable).Select(i => i.Meeting).ToList();
+            return ctx.Invitations.Where(i => i.MemberId == memberId 
+            && i.Availability != Domain.Enums.Availability.Unavailable)
+                .Select(i => i.Meeting).ToList();
+
         }
 
         public List<Meeting> GetNextTenMeetingsByProjectId(int id)
         {
             return ctx.Meetings.Where(m => m.ProjectId == id).OrderBy(m => m.StartTime).Take(10).ToList();
         }
+
+        
     }
 }

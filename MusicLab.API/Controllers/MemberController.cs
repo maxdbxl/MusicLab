@@ -61,13 +61,18 @@ namespace MusicLab.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll([FromQuery]int? meetingId)
         {
+            if(meetingId != null)
+            {
+                var invitations = memberService.GetMembersAndInvitationsByMeetingId(meetingId.Value).Select(i => new InvitationConfirmDTO(i));
+                return Ok(invitations);
+            }
             List<MemberDTO> allMembers = memberService.GetAll().Select(m => new MemberDTO(m))
             .ToList();
             return Ok(allMembers);
         }
 
-
+       
     }
 }
